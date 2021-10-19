@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="preload" th:href="@{/css/style.css}" as="style" />
+        <link rel="stylesheet" th:href="@{/css/style.css}" />
+        <title>Votaciones Presidenciales</title>
+    </head>
+    <body>
+        <header>
+            <h3>Aspirantes a la presidencia de Colombia para el 2022</h3>
+            <img th:src="@{/img/elecciones.png}" alt="logo" />
+        </header>
+
+        <div class="banner">
+            <div class="banner-contenido">
+                <h1>Votaciones Presidenciales</h1>
+                <p>
+                    La Elección Presidencial de Colombia de 2022 se celebrará el
+                    29 de mayo de 2022, y en ella se escogerán al Presidente y
+                    Vicepresidente del país para el periodo 2022-2026. La
+                    fórmula ganadora deberá obtener la mitad más uno del total
+                    de votos válidos, de lo contrario se realizará el 19 de
+                    junio de 2022 una segunda vuelta entre los dos candidatos
+                    con mayor votación. El candidato que obtenga la victoria
+                    gobernará por un único periodo de cuatro años. Según la
+                    constitución de Colombia, pueden ejercer su derecho a
+                    sufragio los ciudadanos mayores 18 años de edad que no hagan
+                    parte de la Fuerza Pública, no estén en un proceso de
+                    interdicción, y que no hayan sido condenados. Las personas
+                    que se encuentran en centros de reclusión, tales como
+                    cárceles o reformatorios, podrán votar en los
+                    establecimientos que determine la Registraduría Nacional. La
+                    inscripción en el registro civil no es automática, el
+                    ciudadano debe dirigirse a la sede regional de la
+                    Registraduría para inscribir su identificación personal en
+                    un puesto de votación.
+                </p>
+                <p>
+                    Entre el 17 y 28 de Agosoto del 2021 se realizó una encuesta
+                    a 900 colombianos de diversas zonas del país, quienes daban
+                    su opinión acerca de los aspirantes presidenciales para el
+                    2022. Los aspirantes presidenciales más populares fueron los
+                    siguientes:
+                </p>
+            </div>
+        </div>
+        <main>
+            <aside>
+                <nav>
+                    <a th:href="@{/}">Pagina Principal</a>
+                    <a th:href="@{/agregar}">Agregar resultados</a>
+                    <a th:href="@{/ver}">Ver Resultados</a>
+                    <a th:href="@{/votar}">Votar candidatos</a>
+                    <a th:href="@{/registrarCedula}">Registrar Cedula</a>
+                    <a th:href="@{/search}">Consultar Cedula</a>
+                </nav>
+            </aside>
+            <section class="contenedor sombra presidentes-grid">
+                <div class="titulo">
+                    <h2>JUAN MANUEL GALÁN</h2>
+                    <img th:src="@{/img/galan.jpg}" alt="Juan Manuel Galan" />
+                </div>
+                <p class="descripcion-parrafo">
+                    "Debemos perseverar en nuestros ideales, que son los que mi
+                    papá construyó para toda una generación de colombianos y que
+                    ahora esperamos que puedan inspirar en las nuevas
+                    generaciones un despertar de la conciencia por garantizar
+                    que la política no se haga en función de intereses
+                    particulares, sino de defender el bien común”.
+                    <span
+                        >Juan Manuel Galán Pachón (Bogotá, 29 de julio de 1972)
+                        es un político colombiano. Ha sido elegido por tres
+                        periodos consecutivos para integrar el Senado de
+                        Colombia.1​ Es hijo del político liberal Luis Carlos
+                        Galán Sarmiento y de la periodista Gloria Pachón.</span
+                    >
+                </p>
+                <div class="titulo">
+                    <h2>ALEJANDRO GAVIRIA URIBE</h2>
+                    <img th:src="@{/img/gaviria.jpg}" alt=Alejandro Gaviria"" />
+                </div>
+                <p class="descripcion-parrafo">
+                    "Soy el candidato capaz de unir a quienes piensan distinto
+                    en Colombia"
+                    <span>
+                        Alejandro Gaviria Uribe (Santiago de Chile, 25 de junio
+                        de 1966) es un académico, economista, escritor,
+                        ingeniero y político chileno de ascendencia colombiana.
+                        Fue Ministro de Salud y Protección Social de Colombia
+                        desde el 3 de septiembre de 2012 al 6 de agosto de
+                        2018.2​ También fue director del Centro para los
+                        Objetivos de Desarrollo Sostenible para Latinoamérica y
+                        el Caribe (CODS) hasta 2019, cuando inició sus labores
+                        como rector de la Universidad de los Andes. A finales de
+                        agosto de 2021, Gaviria anunció sus aspiraciones para
+                        lanzar su candidatura presidencial independiente para
+                        las elecciones presidenciales de 2022.</span
+                    >
+                </p>
+                <div class="titulo">
+                    <h2>SERGIO FAJARDO VALDERRAMA</h2>
+                    <img th:src="@{/img/Sergio.jpg}" alt="Sergio Fajardo" />
+                </div>
+                <p class="descripcion-parrafo">
+                    "Mi consejo es uno: aférrense con todas sus fuerzas y
+                    convicción a la educación. No desfallezcan. Estudien mucho.
+                    EL futuro no lo sabemos pero con certeza si nos educamos
+                    será infinitamente mejor"
+                    <span
+                        >Sergio Fajardo Valderrama (Medellín, 19 de junio de
+                        1956) es un político colombiano. Exalcalde de Medellín y
+                        exgobernador de Antioquia.Fue fórmula vicepresidencial
+                        de Antanas Mockus en las elecciones presidenciales de
+                        2010. Fue candidato a la presidencia de Colombia para el
+                        período 2018 - 2022. Actualmente es candidato a la
+                        Presidencia de la República para las elecciones del
+                        2022.</span
+                    >
+                </p>
+                <div class="titulo">
+                    <h2>GUSTAVO PETRO</h2>
+                    <img th:src="@{/img/petro.jpg}" alt="Gustavo Petro" />
+                </div>
+                <p class="descripcion-parrafo">
+                    "Colombia Humana representa una parte de esa sociedad, la
+                    excluida, la juvenil, la femenina, la trabajadora, la que se
+                    quiere emancipar"
+                    <span
+                        >Gustavo Francisco Petro Urrego (Ciénaga de Oro,
+                        Córdoba, 19 de abril de 1960) es un político y
+                        economista colombiano de ascendencia italiana, actual
+                        Senador de la República para el periodo legislativo
+                        2018-2022, líder fundador del movimiento político
+                        Colombia Humana. Fue candidato para la presidencia de
+                        Colombia en 2010 y 2018. Actualmente es candidato
+                        presidencial para las elecciones de 2022.</span
+                    >
+                    ​
+                </p>
+            </section>
+        </main>
+        <footer>
+            <div class="pieG">
+                <h4 id="pie1">
+                    © Copyright MinTic G46 2022 - Todos los derechos reservados
+                </h4>
+                <ul>
+                    <li class="li-p">
+                        <a
+                            href="https://latinwmg.com/copyright-que-es-y-para-que-sirve/"
+                            >Copyright</a
+                        >
+                    </li>
+                    <li class="li-p">
+                        <a href="https://www.misiontic2022.gov.co/portal/"
+                            >MinTic 2022</a
+                        >
+                    </li>
+                    <li class="li-p">
+                        <a href="https://www.unab.edu.co/">UNAB</a>
+                    </li>
+                    <li class="li-p">
+                        <a href="https://misiontic2022.unab.edu.co/my/"
+                            >MisionTic-UNAB</a
+                        >
+                    </li>
+                </ul>
+            </div>
+        </footer>
+    </body>
+</html>

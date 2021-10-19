@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+        />
+        <link rel="preload" th:href="@{/css/style.css}" as="style" />
+        <link rel="stylesheet" th:href="@{/css/style.css}" />
+        <title>Votaciones Presidenciales</title>
+    </head>
+    <body>
+        <header>
+            <h3>Aspirantes a la presidencia de Colombia para el 2022</h3>
+            <img th:src="@{/img/elecciones.png}" alt="logo" />
+        </header>
+
+        <div class="banner">
+            <div class="banner-contenido">
+                <h1>Votaciones Presidenciales</h1>
+                <p>
+                    La Elección Presidencial de Colombia de 2022 se celebrará el
+                    29 de mayo de 2022, y en ella se escogerán al Presidente y
+                    Vicepresidente del país para el periodo 2022-2026. La
+                    fórmula ganadora deberá obtener la mitad más uno del total
+                    de votos válidos, de lo contrario se realizará el 19 de
+                    junio de 2022 una segunda vuelta entre los dos candidatos
+                    con mayor votación. El candidato que obtenga la victoria
+                    gobernará por un único periodo de cuatro años. Según la
+                    constitución de Colombia, pueden ejercer su derecho a
+                    sufragio los ciudadanos mayores 18 años de edad que no hagan
+                    parte de la Fuerza Pública, no estén en un proceso de
+                    interdicción, y que no hayan sido condenados.
+                </p>
+            </div>
+        </div>
+        <main>
+            <aside>
+                <nav>
+                    <a th:href="@{/}">Pagina Principal</a>
+                    <a th:href="@{/agregar}">Agregar resultados</a>
+                    <a th:href="@{/ver}">Ver Resultados</a>
+                    <a th:href="@{/votar}">Votar candidatos</a>
+                    <a th:href="@{/registrarCedula}">Registrar Cedula</a>
+                    <a th:href="@{/search}">Consultar Cedula</a>
+                </nav>
+            </aside>
+            <section class="form-section sombra">
+                <form name="REG" id="formularioRegistro" th:action="@{/saveRegistro}" th:object="${registro}" method="POST">
+                    <fieldset>
+                        <legend>Registrar Cédula</legend>
+
+                        <div class="mb-3">
+                            <label for="identificacion" class="form-label"
+                                >identificación</label
+                            >
+                            <input
+                                type="number"
+                                id="identificacion"
+                                placeholder="1234567890"
+                                class="form-control"                                
+                                required
+                                name="identificacion"
+                                th:fiel="*{identificacion}"
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label"
+                                >Nombres</label
+                            >
+                            <input
+                                type="text"
+                                id="nombre"
+                                placeholder="Escriba su nombre"
+                                class="form-control"
+                                required
+                                name="nombres"
+                                th:fiel="*{nombres}"
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <label for="apellido" class="form-label"
+                                >Apellidos</label
+                            >
+                            <input
+                                type="text"
+                                id="apellido"
+                                placeholder="Escriba su apellidos"
+                                class="form-control"
+                                required
+                                name="apellidos"
+                                th:fiel="*{apellidos}"
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <label for="correo" class="form-label"
+                                >Correo</label
+                            >
+                            <input
+                                type="email"
+                                id="correo"
+                                placeholder="Escriba su correo"
+                                class="form-control"
+                                required
+                                name="correo"
+                                th:fiel="*{correo}"
+                            />
+                            <small id="mensajeCorreo" class="oculto mensajeError">Correo invalido</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="movil" class="form-label"
+                                >Celular</label
+                            >
+                            <input
+                                required
+                                type="number"
+                                id="movil"
+                                class="form-control"
+                                placeholder="3024567893"
+                                name="movil"
+                                th:fiel="*{movil}"
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <label for="direccion" class="form-label"
+                                >Direccion de Residencia</label
+                            >
+                            <input
+                                type="text"
+                                id="direccion"
+                                placeholder="Escriba su direccion"
+                                class="form-control"
+                                required
+                                name="direccion"
+                                th:fiel="*{direccion}"
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Municipio de votación</label>
+                            <select
+                                id="municipio_id"
+                                required
+                                class="form-select form-control"
+                                aria-label="Default select example"
+                                name="municipio_id"
+                                th:fiel="*{municipio_id}"
+                            >
+                                <option disabled selected value="">
+                                    -- Elija una región --
+                                </option>
+                                <option value="1">M-1</option>
+                                <option value="2">M-2</option>
+                                <option value="3">M-3</option>
+                                <option value="4">M-4</option>
+                                <option value="5">M-5</option>
+                                <option value="6">M-6</option>
+                                <option value="7">M-7</option>
+                                <option value="8">M-8</option>
+                                <option value="9">M-9</option>
+                                <option value="10">M-10</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            Registrar
+                        </button>
+                    </fieldset>
+                </form>
+            </section>
+        </main>
+        <footer>
+            <div class="pieG">
+                <h4 id="pie1">
+                    © Copyright MinTic G46 2022 - Todos los derechos reservados
+                </h4>
+
+                <ul>
+                    <li class="li-p">
+                        <a
+                            href="https://latinwmg.com/copyright-que-es-y-para-que-sirve/"
+                            >Copyright</a
+                        >
+                    </li>
+                    <li class="li-p">
+                        <a href="https://www.misiontic2022.gov.co/portal/"
+                            >MinTic 2022</a
+                        >
+                    </li>
+                    <li class="li-p">
+                        <a href="https://www.unab.edu.co/">UNAB</a>
+                    </li>
+                    <li class="li-p">
+                        <a href="https://misiontic2022.unab.edu.co/my/"
+                            >MisionTic-UNAB</a
+                        >
+                    </li>
+                </ul>
+            </div>
+        </footer>
+        <script th:src="@{/js/scriptRegistro.js}"></script>
+    </body>
+</html>

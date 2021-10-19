@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="preload" th:href="@{/css/style.css}" as="style" />
+        <link rel="stylesheet" th:href="@{/css/style.css}"/>
+        <title>Votaciones Presidenciales</title>
+    </head>
+    <body>
+        <header>
+            <h3>Aspirantes a la presidencia de Colombia para el 2022
+            </h3>
+            <img th:src="@{/img/elecciones.png}" alt="logo"/>
+        </header>        
+       
+        <main>
+            <aside>
+                <nav>
+                   <a th:href="@{/}">Pagina Principal</a>
+                    <a th:href="@{/agregar}">Agregar resultados</a>
+                    <a th:href="@{/ver}">Ver Resultados</a>
+                    <a th:href="@{/votar}">Votar candidatos</a>
+                    <a th:href="@{/registrarCedula}">Registrar Cedula</a>
+                    <a th:href="@{/search}">Consultar Cedula</a>
+                </nav>
+            </aside>
+            
+            <section class="contenedor sombra presidentes-grid">
+                <div class="titulo">
+                    <h2>MANUEL GALÁN</h2>
+                    <img th:src="@{/img/galan.jpg}" alt="Juan Manuel Galan" />
+                    <div>
+                        <button class="boton" type="button" id="btn1" onclick="javacript: votar(1)">Votar</button>
+                    </div>
+                </div>
+               
+                <div class="titulo">
+                    <h2>ALEJANDRO GAVIRIA</h2>
+                    <img th:src="@{/img/gaviria.jpg}" alt=Alejandro Gaviria"" />
+                    <div>
+                        <button class="boton" type="button" id="btn2" onclick="javacript: votar(2)" >Votar</button>
+                    </div>
+                </div>
+                
+                <div class="titulo">
+                    <h2>SERGIO FAJARDO</h2>
+                    <img th:src="@{/img/Sergio.jpg}" alt="Sergio Fajardo" />
+                    <div>
+                        <button class="boton" type="button" id="btn3" onclick="javacript: votar(3)">Votar</button>
+                    </div>
+                </div>
+                
+                <div class="titulo">
+                    <h2>GUSTAVO PETRO</h2>
+                    <img th:src="@{/img/petro.jpg}" alt="Gustavo Petro" />
+                    <div>
+                        <button class="boton" type="button" id="btn4" onclick="javacript: votar(4)">Votar</button>
+                    </div>
+                </div>
+                <button class="boton"type="button" id="btn0" onclick="javacript: votar(0)">Cerra Votacion</button>
+                
+            </section>          
+        </main>
+       <footer>
+            <div class="pieG">
+                <h4 id="pie1">© Copyright MinTic G46 2022 - Todos los derechos reservados</h4>                
+                    <ul>
+                        <li class="li-p"><a href="https://latinwmg.com/copyright-que-es-y-para-que-sirve/">Copyright</a></li>
+                        <li class="li-p"><a href="https://www.misiontic2022.gov.co/portal/">MinTic 2022</a></li>
+                        <li class="li-p"><a href="https://www.unab.edu.co/">UNAB</a></li>
+                        <li class="li-p"><a href="https://misiontic2022.unab.edu.co/my/">MisionTic-UNAB</a></li>
+                        
+                    </ul>
+            </div>
+        </footer>
+        <script th:src="@{/js/script.js}"></script>
+    </body>
+</html>
