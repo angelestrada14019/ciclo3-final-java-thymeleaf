@@ -31,7 +31,7 @@ public class RegistroControlador {
 	
 	@GetMapping("/")
 	public String index() {
-		return "/html/index";
+		return "/index";
 	}
 	@GetMapping("/agregar")
 	public String agregar() {
